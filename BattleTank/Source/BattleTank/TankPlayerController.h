@@ -32,4 +32,7 @@ private:
 	void AimTowardsCrosshair();
 
 	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
+
+	// De-project the screen position of the crosshair to a world direction
+	bool GetLookDirection(FVector2D, FVector &LookDirection) const;
 };
