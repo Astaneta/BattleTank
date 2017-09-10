@@ -8,8 +8,6 @@
 #include "TankPlayerController.generated.h"
 
 
-
-
 UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
 {
@@ -28,11 +26,16 @@ public:
 	UPROPERTY(EditAnywhere)
 	float CrossHairYLocation = 0.33333f;
 
+	UPROPERTY(EditAnyWhere)
+	float LineTraceRange = 1000000;
 private:
 	void AimTowardsCrosshair();
 
 	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
 
 	// De-project the screen position of the crosshair to a world direction
-	bool GetLookDirection(FVector2D, FVector &LookDirection) const;
+	bool GetLookDirection(FVector2D, FVector &OutLookDirection) const;
+
+	bool GetLookVectorHitLocation(FVector endVector, FVector &OutHitLocation) const;
+
 };
