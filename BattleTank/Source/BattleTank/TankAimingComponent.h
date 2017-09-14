@@ -28,7 +28,11 @@ public:
 
 	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
 
+	//TODO SetTurretReference
+
 private:
 	UStaticMeshComponent* Barrel = nullptr;
+
+	void MoveBarrelTowards(FVector AimDirection);
 	
 };
