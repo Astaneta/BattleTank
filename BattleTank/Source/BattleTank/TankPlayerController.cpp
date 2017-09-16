@@ -71,7 +71,8 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector endVector, FVector 
 	FVector EndVector = StartVector + (endVector * LineTraceRange);
 	// Create an HitResult
 	FHitResult HitResult;
-		// Use the LineTraceSingleByChannel method passing the OutHitLocation paramether
+
+	// Use the LineTraceSingleByChannel method passing the OutHitLocation paramether
 	bIsHitted = GetWorld()->LineTraceSingleByChannel(
 		HitResult,
 		StartVector,
