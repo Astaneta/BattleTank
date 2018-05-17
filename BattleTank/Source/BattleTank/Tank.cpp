@@ -3,6 +3,7 @@
 #include "Tank.h"
 #include "TankAimingComponent.h"
 #include "Components/InputComponent.h"
+#include "Engine/World.h"
 
 // Sets default values
 ATank::ATank()
@@ -36,14 +37,21 @@ void ATank::AimAt(FVector HitLocation)
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
+}
 void ATank::Fire()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Fire method called"))
+
+	// Protect the pointer if null
+	if (!Barrel) { return; }
+
+	// Spawn a projectile at the socket location on the barrel
 }
 
 void ATank::SetBarrelReference(UTankBarrel * BarrelToSet)
 {
 	TankAimingComponent->SetBarrelReference(BarrelToSet);
+	Barrel = BarrelToSet;
 }
 
 void ATank::SetTurretReference(UTankTurret * TurretToSet)
